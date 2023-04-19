@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <span>gg</span>
+      <span>Class-quiz</span>
     </>
   );
 }
