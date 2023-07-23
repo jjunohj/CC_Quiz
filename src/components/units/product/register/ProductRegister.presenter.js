@@ -1,31 +1,31 @@
+import * as S from "./ProductRegister.styles";
+
 export default function ProductRegisterUI(props) {
   return (
     <>
-      <input
-        type="text"
-        value={props.productSeller}
+      <S.Input
         placeholder="Product Seller"
         onChange={props.handleProductSellerChange}
-      ></input>
-      <input
-        type="text"
-        value={props.productName}
+      ></S.Input>
+      <br />
+      <S.Input
         placeholder="Product Name"
         onChange={props.handleProductNameChange}
-      ></input>
-      <input
-        type="text"
-        value={props.productDetail}
+      ></S.Input>
+      <br />
+      <S.Input
         placeholder="Product Detail"
         onChange={props.handleProductDetailChange}
-      ></input>
-      <input
-        type="number"
-        value={props.productPrice}
+      ></S.Input>
+      <br />
+      <S.Input
         placeholder="Product Price"
         onChange={props.handleProductPriceChange}
-      ></input>
-      <button onClick={props.onClickSubmit}>상품 등록</button>
+      ></S.Input>
+      <br />
+      <S.Button onClick={props.onClickSubmit} isFilled={props.isFilled}>
+        상품 등록
+      </S.Button>
     </>
   );
 }
