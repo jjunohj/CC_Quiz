@@ -7,6 +7,7 @@ export default function ProductDetailUI(props) {
       <div>상품의 이름은 {props.data?.fetchProduct.name}입니다.</div>
       <div>상품의 상세정보는 {props.data?.fetchProduct.detail}입니다.</div>
       <div>상품의 가격은 {props.data?.fetchProduct.price}입니다.</div>
+      <button onClick={props.onClickMoveToEdit}>수정하러가기</button>
     </>
   );
 }

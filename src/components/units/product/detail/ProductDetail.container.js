@@ -9,5 +9,15 @@ export default function ProductDetail() {
     variables: { productId: router.query.productId },
   });
 
-  return <ProductDetailUI id={router.query.productId} data={data} />;
+  const onClickMoveToEdit = () => {
+    router.push(`/08/${router.query.productId}/edit`);
+  };
+
+  return (
+    <ProductDetailUI
+      id={router.query.productId}
+      data={data}
+      onClickMoveToEdit={onClickMoveToEdit}
+    />
+  );
 }
