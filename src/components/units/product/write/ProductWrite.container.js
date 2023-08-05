@@ -32,17 +32,28 @@ export default function ProductWrite(props) {
 
   const onClickUpdate = async () => {
     try {
-      console.log(router.query.productId);
+      const updateVariables = {
+        productId: router.query.productId,
+        updateProductInput: {},
+      };
+
+      if (seller) {
+        updateVariables.updateProductInput.seller = seller;
+      }
+      if (product) {
+        updateVariables.updateProductInput.name = product;
+      }
+      if (detail) {
+        updateVariables.updateProductInput.detail = detail;
+      }
+      if (price) {
+        updateVariables.updateProductInput.price = Number(price);
+      }
+
       const result = await updateProduct({
-        variables: {
-          productId: String(router.query.productId),
-          updateProductInput: {
-            name: product,
-            detail: detail,
-            price: Number(price),
-          },
-        },
+        variables: updateVariables,
       });
+
       alert(result.data.updateProduct.message);
       router.push(`/08/${router.query.productId}`);
     } catch (error) {
@@ -72,6 +83,7 @@ export default function ProductWrite(props) {
   return (
     <ProductWriteUI
       isEdit={props.isEdit}
+      data={props.data}
       onClickSubmit={onClickSubmit}
       onClickUpdate={onClickUpdate}
       onChangeSeller={onChangeSeller}
